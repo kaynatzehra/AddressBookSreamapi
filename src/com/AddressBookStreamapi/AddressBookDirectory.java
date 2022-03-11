@@ -157,6 +157,6 @@ public class AddressBookDirectory {
 
             System.out.println(eachBookName);
         }
-        System.out.println("---------------------------------------");
+        System.out.println("--------------------------------");
     }
 }
