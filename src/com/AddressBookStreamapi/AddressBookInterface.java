@@ -1,6 +1,8 @@
 package com.AddressBookStreamapi;
 import java.util.List;
 
+import java.util.List;
+
 public interface AddressBookInterface {
 
     public void operation();
