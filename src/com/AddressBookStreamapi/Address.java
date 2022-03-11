@@ -1,5 +1,4 @@
 package com.AddressBookStreamapi;
-
 public class Address {
 
     private String city, state;
