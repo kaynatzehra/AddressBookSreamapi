@@ -8,7 +8,7 @@ public class AddressBookDirectory {
 
     public AddressBook addressBook;
     Scanner scannerObject = new Scanner(System.in);
-    Map<String,AddressBook> addressBookDirectory = new HashMap<String,AddressBook>();
+    Map<String, AddressBook> addressBookDirectory = new HashMap<String, AddressBook>();
 
 
     public void operationDirectory() {
@@ -30,7 +30,7 @@ public class AddressBookDirectory {
                 case 3:
                     System.out.println("Enter \n1.Search By City\n2.Search By State");
                     int searChoice = scannerObject.nextInt();
-                    if(searChoice==1)
+                    if (searChoice == 1)
                         searchByCity();
                     else
                         searchByState();
@@ -38,7 +38,7 @@ public class AddressBookDirectory {
                 case 4:
                     System.out.println("Enter \n1.Display By City\n2.Display By State");
                     int displayChoice = scannerObject.nextInt();
-                    if(displayChoice==1)
+                    if (displayChoice == 1)
                         displayPeopleByRegion(AddressBook.personByCity);
                     else
                         displayPeopleByRegion(AddressBook.personByState);
@@ -46,7 +46,7 @@ public class AddressBookDirectory {
                 case 5:
                     System.out.println("Enter \n1.Display By City\n2.Display By State");
                     int countChoice = scannerObject.nextInt();
-                    if(countChoice==1)
+                    if (countChoice == 1)
                         countPeopleByRegion(AddressBook.personByCity);
                     else
                         countPeopleByRegion(AddressBook.personByState);
@@ -67,7 +67,7 @@ public class AddressBookDirectory {
         System.out.println("Enter the name of the Address Book you want to add");
         String bookNameToAdd = scannerObject.next();
 
-        if(addressBookDirectory.containsKey(bookNameToAdd)) {
+        if (addressBookDirectory.containsKey(bookNameToAdd)) {
             System.out.println("Book Name Already Exists");
             return;
         }
@@ -82,11 +82,10 @@ public class AddressBookDirectory {
         System.out.println("Enter the Name of the Address Book which you want to edit:");
         String addressBookToEdit = scannerObject.next();
 
-        if(addressBookDirectory.containsKey(addressBookToEdit)) {
+        if (addressBookDirectory.containsKey(addressBookToEdit)) {
             addressBook = addressBookDirectory.get(addressBookToEdit);
             addressBook.operation();
-        }
-        else {
+        } else {
             System.out.println("Book Does Not Exist");
         }
 
@@ -99,7 +98,7 @@ public class AddressBookDirectory {
         System.out.println("Enter the name of the Person : ");
         String personName = scannerObject.next();
 
-        for(AddressBook addressBook : addressBookDirectory.values()) {
+        for (AddressBook addressBook : addressBookDirectory.values()) {
             ArrayList<ContactInfo> contactList = addressBook.getContact();
             contactList.stream()
                     .filter(person -> person.getFirstName().equals(personName) && person.getAddress().getCity().equals(cityName))
@@ -115,7 +114,7 @@ public class AddressBookDirectory {
         System.out.println("Enter the name of the Person : ");
         String personName = scannerObject.next();
 
-        for(AddressBook addressBook : addressBookDirectory.values()) {
+        for (AddressBook addressBook : addressBookDirectory.values()) {
             ArrayList<ContactInfo> contactList = ((AddressBook) addressBook).getContact();
             contactList.stream()
                     .filter(person -> person.getFirstName().equals(personName) && person.getAddress().getState().equals(stateName))
@@ -146,7 +145,7 @@ public class AddressBookDirectory {
                         .filter(person -> person.getAddress().getState().equals(regionName) || person.getAddress().getCity().equals(regionName)))
                 .count();
 
-        System.out.println("Number of People residing in " + regionName+" are: "+countPeople+"\n");
+        System.out.println("Number of People residing in " + regionName + " are: " + countPeople + "\n");
 
     }
 
