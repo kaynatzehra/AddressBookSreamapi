@@ -1,5 +1,4 @@
 package com.AddressBookStreamapi;
-
 import java.util.Scanner;
 
 public class AddressBookMain {
